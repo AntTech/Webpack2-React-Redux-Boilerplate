@@ -14,7 +14,25 @@ const exportLoaders = {};
 exportLoaders.jsx = {
   test: /\.(js|jsx)$/,
   exclude: /(node_modules)/,
-  loaders: ['babel-loader']
+  loader: 'babel-loader',
+  query: {
+    presets: [
+      'react', 'es2015', 'stage-1'
+    ],
+    plugins: [
+      ['transform-decorators-legacy'],
+      [
+        'import', {
+          libraryName: 'antd',
+          style: 'css'
+        }, {
+          libraryName: 'material-ui',
+          libraryDirectory: 'components', // default: lib
+          camel2DashComponentName: false, // default: true
+        }
+      ]
+    ]
+  }
 };
 
 // 对于JS与JSX的格式校验
@@ -44,17 +62,19 @@ if (NODE_ENV === 'development') {
   // 如果当前为开发环境,则封装内联的CSS
   exportLoaders.style = {
     test: /\.(scss|sass|css)$/,
-    loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true&includePaths[]=./node_modules'
+    loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded&sourceMa' +
+        'p=true&sourceMapContents=true&includePaths[]=./node_modules'
   };
 } else {
   // 如果当前为编译环境,则抽取出CSS代码
   exportLoaders.style = {
     test: /\.(scss|sass|css)$/,
-    loader: ExtractTextPlugin.extract('css-loader!postcss-loader!sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true&includePaths[]=./node_modules')
+    loader: ExtractTextPlugin.extract('css-loader!postcss-loader!sass-loader?outputStyle=expanded&sourceMap=true&source' +
+        'MapContents=true&includePaths[]=./node_modules')
   };
 }
-// 对于图片与字体文件的导入工具,并且设置默认的dist中存放方式
-// inline base64 URLs for <=8k images, direct URLs for the rest
+// 对于图片与字体文件的导入工具,并且设置默认的dist中存放方式 inline base64 URLs for <=8k images, direct
+// URLs for the rest
 exportLoaders.assets = {
   test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif|mp4|webm)(\?\S*)?$/,
   loader: 'url-loader?limit=8192&name=assets/imgs/[hash].[ext]'

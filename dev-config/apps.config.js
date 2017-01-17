@@ -23,12 +23,17 @@ export default {
       src: './src/redux/redux_app.js',
       indexPage: defaultIndexPage,
       compiled: false
+    }, {
+      id: 'showme',
+      src: './src/showme/app.client.js',
+      indexPage: defaultIndexPage,
+      compiled: false
     }
   ],
 
   // 开发服务器配置
   devServer: {
-    appEntrySrc: './src/redux/redux_app.js', // 当前待调试的APP的入口文件
+    appEntrySrc: './src/showme/app.client.js', // 当前待调试的APP的入口文件
     port: 3000 // 监听的Server端口
   },
 

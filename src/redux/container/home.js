@@ -26,7 +26,7 @@ export class Home extends Component {
     return <section className="home__container">
 
       <div>
-        王下邀月熊 Webpack2-React-Redux-Boilerplate
+        Webpack2-React-Redux-Boilerplate
       </div>
 
       <div>导航栏目:</div>
