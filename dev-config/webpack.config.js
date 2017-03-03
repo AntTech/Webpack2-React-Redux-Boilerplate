@@ -46,7 +46,7 @@ const devTool = __DEV__ ? 'cheap-module-eval-source-map' : 'hidden-source-map';
 const config = {
   cache: true, // 使用缓存，提高编译速度
   entry,
-  devtool: devTool,
+  // devtool: devTool,
   // 所有的出口文件，注意，所有的包括图片等本机被放置到了dist目录下，其他文件放置到static目录下
   output: {
     path: path.join(__dirname, '../dist'), // 生成目录

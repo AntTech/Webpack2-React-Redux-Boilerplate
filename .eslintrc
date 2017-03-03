@@ -21,7 +21,9 @@
     "react/jsx-indent": 0,
     "indent":0,
     "react/jsx-indent-props": 0,
+    "react/prefer-stateless-function" : "off",
     "comma-dangle": "off",
+    "import/no-dynamic-require": 0,
     "react/forbid-prop-types": [1, {"forbid": []}]
   }
 }

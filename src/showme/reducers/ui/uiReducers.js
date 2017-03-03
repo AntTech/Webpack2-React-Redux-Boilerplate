@@ -1,10 +1,9 @@
-import {handleActions} from 'redux-actions';
-import {UiState} from '../../constants/model';
-import {SHOW_SPINNER, HIDE_SPINNER} from '../../constants/actionTypes';
+import { handleActions } from 'redux-actions';
+import { UiState } from '../../constants/model';
+import { SIDER_COLLAPSED } from '../../constants/actionTypes';
 
 const uiReducers = handleActions({
-    SHOW_SPINNER: state => (state.set('spinnerVisible', true)),
-    HIDE_SPINNER: state => (state.set('spinnerVisible', false))
+    SIDER_COLLAPSED: state => ({collapsed: !state.collapsed})
 }, UiState);
 
 export default uiReducers;
