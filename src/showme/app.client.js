@@ -44,7 +44,11 @@ if (module.hot) {
       renderAppException(error);
     }
   };
-  module.hot.accept(['./containers/App', './containers/Home'], renderApp);
+  module.hot.accept([
+    './containers/App',
+    './containers/Home',
+    './containers/Counter'
+    ], renderApp);
 }
 
 renderApp();

@@ -5,40 +5,47 @@ import '../../static/css/app.css';
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const App = ({children, collapsed, onCollapse}) => (
+const routeMap = {
+    '/': '1',
+    '/counter': '2',
+    '/todos': '3',
+    '/news': '4',
+    '/about': '5'
+};
+
+const App = ({children, location, collapsed, onCollapse}) => (
 <Layout style={{ height: '100%' }}>
         <Sider
           collapsible
           collapsed={collapsed}
           onCollapse={onCollapse}
         >
-          <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <div className="logo" ><div className="logoImg" /></div>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={[routeMap[location.pathname]]}>
             <Menu.Item key="1">
               <Icon type="home" />
               <span className="nav-text">主页</span>
               <Link to="/">主页</Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Icon type="plus-square-o" />
+              <Icon type="calculator" />
               <span className="nav-text">计数器</span>
               <Link to="/counter">计数器</Link>
             </Menu.Item>
             <Menu.Item key="3">
-              <Icon type="upload" />
-              <span className="nav-text">nav 3</span>
+              <Icon type="bars" />
+              <span className="nav-text">待办</span>
+              <Link to="/todos">Todos</Link>
             </Menu.Item>
             <Menu.Item key="4">
-              <Icon type="user" />
-              <span className="nav-text">nav 4</span>
+              <Icon type="appstore-o" />
+              <span className="nav-text">头条</span>
+              <Link to="/news">头条</Link>
             </Menu.Item>
             <Menu.Item key="5">
-              <Icon type="heart-o" />
-              <span className="nav-text">nav 5</span>
-            </Menu.Item>
-            <Menu.Item key="6">
-              <Icon type="team" />
-              <span className="nav-text">nav 6</span>
+              <Icon type="user" />
+              <span className="nav-text">关于我</span>
+              <Link to="/about">关于我</Link>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -48,14 +55,7 @@ const App = ({children, collapsed, onCollapse}) => (
             <small>点击左侧导航栏开始</small>
           </Header>
           <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '12px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-               {children}
-            </div>
+            {children}
           </Content>
           <Footer style={{ textAlign: 'center' }}>
             Ant Design ©2016 Created by Ant UED
@@ -67,6 +67,7 @@ const App = ({children, collapsed, onCollapse}) => (
 // propTypes 校验
 App.propTypes = {
     children: React.PropTypes.any,
+    location: React.PropTypes.any,
     collapsed: React.PropTypes.bool,
     onCollapse: React.PropTypes.func
 };
