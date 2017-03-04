@@ -2,7 +2,7 @@
  * Created by apple on 16/10/11.
  */
 import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
+import promiseMiddleware from 'redux-promise';
 import { routerMiddleware } from 'react-router-redux';
 import rootReducer from '../reducers';
 
@@ -14,7 +14,7 @@ export default (history, initialState = {}) => {
   // ======================================================
   // 中间件配置
   // ======================================================
-  const middleware = [reduxRouterMiddleware, thunk];
+  const middleware = [reduxRouterMiddleware, promiseMiddleware];
   // ======================================================
   // 构建Store实例
   // ======================================================

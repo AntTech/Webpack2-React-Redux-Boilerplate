@@ -25,3 +25,23 @@
 .anticon {
     line-height: inherit;
 }
+
+.header {
+  background: rgb(255, 255, 255);
+}
+
+.header small {
+    font-size: 75%;
+    font-weight: 400;
+    color: #c0c0c0;
+    letter-spacing: 0;
+    margin-left: 0.6em;
+}
+.breadcrumb {
+  margin: 12px 0px;
+}
+.content-body {
+    padding: 24px;
+    height: 80%;
+    background: rgb(255, 255, 255);
+}
