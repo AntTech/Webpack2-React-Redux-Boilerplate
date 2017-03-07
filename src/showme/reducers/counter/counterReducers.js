@@ -10,27 +10,27 @@ import {
 } from '../../constants/actionTypes';
 
 const counterReducers = handleActions({
-    SYNC_INCREMENT_COUNTER: state => ({
+    [SYNC_INCREMENT_COUNTER]: state => ({
         ...state,
         counter: state.counter + 1
     }),
-    SYNC_DECREMENT_COUNTER: state => ({
+    [SYNC_DECREMENT_COUNTER]: state => ({
         ...state,
         counter: state.counter - 1
     }),
-    ASYNC_INCREMENT_COUNTER: state => ({
+    [ASYNC_INCREMENT_COUNTER]: state => ({
         ...state,
         counter: state.counter + 1
     }),
-    ASYNC_DECREMENT_COUNTER: state => ({
+    [ASYNC_DECREMENT_COUNTER]: state => ({
         ...state,
         counter: state.counter - 1
     }),
-    TOGGLE_ASYNC_INCREMENT_LOADING: state => ({
+    [TOGGLE_ASYNC_INCREMENT_LOADING]: state => ({
         ...state,
         asyncIncrLoading: !state.asyncIncrLoading
     }),
-    TOGGLE_ASYNC_DECREMENT_LOADING: state => ({
+    [TOGGLE_ASYNC_DECREMENT_LOADING]: state => ({
         ...state,
         asyncDecrLoading: !state.asyncDecrLoading
     })

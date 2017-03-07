@@ -15,6 +15,7 @@ let renderApp = () => {
   const App = require('./containers/App').default;
   const Home = require('./containers/Home').default;
   const Counter = require('./containers/Counter').default;
+  const Todos = require('./containers/Todos').default;
   // 将组件渲染到DOM中
   const rootComponent = (
     <Provider store={store} key="provider">
@@ -22,6 +23,7 @@ let renderApp = () => {
         <Route path="/" history={history} component={App} >
           <IndexRoute component={Home} />
           <Route path="counter" component={Counter} />
+          <Route path="todos" component={Todos} />
         </Route>
       </Router>
     </Provider>
@@ -47,7 +49,8 @@ if (module.hot) {
   module.hot.accept([
     './containers/App',
     './containers/Home',
-    './containers/Counter'
+    './containers/Counter',
+    './containers/Todos'
     ], renderApp);
 }
 

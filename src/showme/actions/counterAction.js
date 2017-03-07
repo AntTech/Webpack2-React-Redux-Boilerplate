@@ -1,4 +1,3 @@
-// uiActions负责处理ui行为
 import {createAction} from 'redux-actions';
 import {
     SYNC_DECREMENT_COUNTER,

@@ -7,3 +7,18 @@ export const CounterState = {
     asyncIncrLoading: false,
     asyncDecrLoading: false
 };
+
+export const TodosState = {
+    filter: 'ALL',
+    todos: [{
+        id: 1,
+        text: 'abc',
+        completed: false
+    },
+    {
+        id: 2,
+        text: 'edf',
+        completed: false
+    }]
+};
+
