@@ -4,7 +4,7 @@ import { Layout, Menu, Breadcrumb, Icon, Row, Col, Tag} from 'antd';
 import '../../static/css/app.css';
 
 const { Header, Content, Footer, Sider } = Layout;
-const App = ({children, location, collapsed, counter, onCollapse}) => (
+const App = ({children, location, collapsed, counter, todos, onCollapse}) => (
 <Layout style={{ height: '100%' }}>
         <Sider
           collapsible
@@ -51,7 +51,7 @@ const App = ({children, location, collapsed, counter, onCollapse}) => (
               </Col>
               <Col span={4}>
                 <Tag color="orange">Counter: {counter}</Tag>
-                <Tag color="green">Todos: 111</Tag>
+                <Tag color="green">Todos: {todos}</Tag>
               </Col>
             </Row>
           </Header>
@@ -72,6 +72,7 @@ App.propTypes = {
     collapsed: React.PropTypes.bool,
     onCollapse: React.PropTypes.func,
     counter: React.PropTypes.number,
+    todos: React.PropTypes.number
 };
 
 export default App;

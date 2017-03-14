@@ -9,23 +9,20 @@ import {
     TOGGLE_ASYNC_DECREMENT_LOADING
 } from '../../constants/actionTypes';
 
+const incrementCounter = state => ({
+        ...state,
+        counter: state.counter + 1
+    });
+const decrementCounter = state => ({
+        ...state,
+        counter: state.counter - 1
+    });
+
 const counterReducers = handleActions({
-    [SYNC_INCREMENT_COUNTER]: state => ({
-        ...state,
-        counter: state.counter + 1
-    }),
-    [SYNC_DECREMENT_COUNTER]: state => ({
-        ...state,
-        counter: state.counter - 1
-    }),
-    [ASYNC_INCREMENT_COUNTER]: state => ({
-        ...state,
-        counter: state.counter + 1
-    }),
-    [ASYNC_DECREMENT_COUNTER]: state => ({
-        ...state,
-        counter: state.counter - 1
-    }),
+    [SYNC_INCREMENT_COUNTER]: incrementCounter,
+    [SYNC_DECREMENT_COUNTER]: decrementCounter,
+    [ASYNC_INCREMENT_COUNTER]: incrementCounter,
+    [ASYNC_DECREMENT_COUNTER]: decrementCounter,
     [TOGGLE_ASYNC_INCREMENT_LOADING]: state => ({
         ...state,
         asyncIncrLoading: !state.asyncIncrLoading

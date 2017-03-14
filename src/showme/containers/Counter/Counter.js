@@ -17,19 +17,17 @@ export default connect(
         asyncDecrLoading: state.counter.asyncDecrLoading
     }),
     dispatch => ({
-        onSyncIncrement: () => (dispatch(syncIncrement())),
-        onSyncDecrement: () => (dispatch(syncDecrement())),
+        onSyncIncrement: () => dispatch(syncIncrement()),
+        onSyncDecrement: () => dispatch(syncDecrement()),
         onAsyncIncrement: async () => {
                 dispatch(toggleAsyncIncrementLoading());
-                const result = await dispatch(asyncIncrement());
+                await dispatch(asyncIncrement());
                 dispatch(toggleAsyncIncrementLoading());
-                return result;
         },
         onAsyncDecrement: async () => {
                 dispatch(toggleAsyncDecrementLoading());
-                const result = await dispatch(asyncDecrement());
+                await dispatch(asyncDecrement());
                 dispatch(toggleAsyncDecrementLoading());
-                return result;
         }
     })
 )(Counter);

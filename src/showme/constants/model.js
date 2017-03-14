@@ -9,7 +9,7 @@ export const CounterState = {
 };
 
 export const TodosState = {
-    filter: 'ALL',
+    filter: 'SHOW_ALL',
     todos: [{
         id: 1,
         text: 'abc',
